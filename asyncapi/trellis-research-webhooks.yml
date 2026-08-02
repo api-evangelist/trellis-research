@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: searched
+source: https://support.trellis.law/trellis-api
+type: Webhooks
+spec_type: Webhooks
+description: >-
+  The Trellis REST Data API exposes a Webhooks endpoint for managing webhook
+  subscriptions that deliver notifications from docket refreshes and alerts.
+  Trellis has no published AsyncAPI document; this captures the documented
+  webhook/event surface (searched from the provider API docs). NEVER fabricated.
+docs: https://support.trellis.law/trellis-api
+management:
+  endpoint: Webhooks
+  description: >-
+    The Webhooks endpoint allows management (create/list/delete) of webhooks for
+    notifications generated from docket refreshes and from case/topic alerts.
+event_sources:
+  - name: docket_refresh
+    description: >-
+      Fired when a tracked docket is refreshed and new docket entries, parties,
+      attorneys, documents, or events are detected.
+  - name: alert
+    description: >-
+      Fired when a saved case or topic alert matches new filings or case updates
+      (Trellis provides daily case updates and tracking alerts).
+notes: >-
+  Exact webhook payload schemas and event-type identifiers are documented behind
+  the sales-gated API reference; captured here as the documented event surface.

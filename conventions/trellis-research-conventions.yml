@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: searched
+source: https://support.trellis.law/trellis-api
+docs: https://support.trellis.law/trellis-api
+description: >-
+  Cross-cutting request/response conventions for the Trellis REST Data API (V2).
+  Captured from the provider's public API documentation; details behind the
+  sales-gated reference are marked unknown rather than fabricated.
+authentication:
+  style: api-key
+  location: header
+  parameter: Authorization
+  server_side_only: true
+  reference: authentication/trellis-research-authentication.yml
+search:
+  style: >-
+    Boolean and query searching identical to the Trellis Smart Search UI, with
+    filtering and sorting across state-level Cases, Documents, and Rulings.
+pagination:
+  style: unknown
+  notes: Result sets support filtering and sorting; exact pagination params not published publicly.
+versioning:
+  scheme: uri-version
+  current: v2
+  notes: V2 introduced May 2024, adding federal and PACER integration atop V1 features.
+  reference: lifecycle/trellis-research-lifecycle.yml
+webhooks:
+  supported: true
+  reference: asyncapi/trellis-research-webhooks.yml
+usage_metering:
+  endpoint: Usage
+  description: The Usage endpoint returns API usage statistics for the current billing cycle.
+idempotency:
+  supported: unknown
+  notes: No idempotency-key contract is documented on the public API pages.
+error_envelope:
+  shape: unknown
+  notes: Error format not published on public docs.
+rate_limiting:
+  documented: unknown
+  notes: Usage is metered per billing cycle via the Usage endpoint; explicit rate-limit headers not published.

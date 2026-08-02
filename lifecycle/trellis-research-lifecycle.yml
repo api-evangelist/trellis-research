@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: searched
+source: https://support.trellis.law/trellis-api
+description: >-
+  Versioning and lifecycle posture for the Trellis REST Data API, from the
+  provider's public API documentation.
+versioning:
+  scheme: uri-version
+  current: v2
+  history:
+    - version: v1
+      status: superseded
+      notes: Original Trellis API.
+    - version: v2
+      status: current
+      released: '2024-05'
+      notes: >-
+        Maintains all V1 features and adds federal and PACER integration,
+        broadening access to State Trial, Federal, Appellate, Supreme Court,
+        and Bankruptcy case data.
+  docs: https://support.trellis.law/trellis-api
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  notes: No public deprecation policy or RFC 8594 Sunset/Deprecation header support documented.
+sla:
+  url: null
+  uptime_target: null
+status_page:
+  url: https://status.trellis.law/
+  provider: Better Stack
+  notes: Public status page hosted on Better Stack (HTTP 200).

@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: searched
+description: >-
+  /.well-known/ discovery probe across the Trellis hosts. The primary web/API
+  host trellis.law sits behind Cloudflare bot protection and returns 403 to
+  automated probes (not a definitive absence). The MCP host mcp.trellis.law
+  publishes RFC 8414 / RFC 9728 OAuth discovery documents, saved verbatim.
+hosts:
+  - host: https://trellis.law
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+  - host: https://mcp.trellis.law
+    documents:
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: trellis-research-oauth-authorization-server.json
+        standard: RFC 8414
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        file: trellis-research-oauth-protected-resource.json
+        standard: RFC 9728
+      - path: /.well-known/openid-configuration
+        status: 404

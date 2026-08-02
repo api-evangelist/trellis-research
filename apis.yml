@@ -1,7 +1,28 @@
 aid: trellis-research
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/trellis-research.png
 name: Trellis Research
-description: Trellis Research is a company surfaced as a portfolio company of techstars and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Trellis (trellis.law) is an AI-powered state and federal court research and
+  litigation analytics platform built by litigators for legal teams. It
+  aggregates the most extensive U.S. trial court data available — State Trial,
+  Federal, District, Appellate, Supreme Court, and Bankruptcy cases across all
+  50 states plus DC — and exposes it through Smart Search, a REST Data API (V2,
+  with federal and PACER integration), and a remote OAuth-secured MCP server.
+  Capabilities include case/docket search, document retrieval, tentative
+  rulings, verdict records, judge and firm analytics, party and expert search,
+  case/topic alerts, and webhook notifications for docket refreshes.
 url: https://raw.githubusercontent.com/api-evangelist/trellis-research/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,10 +32,39 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 12
+  pass: local-v1
 tags:
 - Company
-apis: []
+- Legal
+- Legal Research
+- Court Records
+- Litigation Analytics
+- Judicial Analytics
+- Legal Data
+- API
+- MCP
+apis:
+- name: Trellis Trial Court Data API
+  description: >-
+    REST Data API (V2, May 2024) for programmatic access to U.S. state and
+    federal trial court data — Search (Boolean/query over Cases, Documents,
+    Rulings with filtering and sorting), Rulings, Judges, Usage (billing-cycle
+    usage stats), and Webhooks (manage refresh/alert notifications). API-key
+    auth via the Authorization header.
+  humanURL: https://support.trellis.law/trellis-api
+  baseURL: https://trellis.law/api/
+  properties:
+  - type: Documentation
+    url: https://support.trellis.law/trellis-api
+  - type: APIReference
+    url: https://support.trellis.law/trellis-api
+  - type: Authentication
+    url: authentication/trellis-research-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +73,41 @@ maintainers:
 common:
 - type: Website
   url: https://trellis.law/
+- type: DeveloperPortal
+  url: https://support.trellis.law/trellis-api
+- type: Documentation
+  url: https://support.trellis.law/
+- type: APIReference
+  url: https://support.trellis.law/trellis-api
+- type: Blog
+  url: https://blog.trellis.law/
+- type: Support
+  url: https://support.trellis.law/
+- type: SignUp
+  url: https://trellis.law/signup
+- type: TermsOfService
+  url: https://trellis.law/terms-of-service
+- type: PrivacyPolicy
+  url: https://trellis.law/privacy-policy
+- type: StatusPage
+  url: https://status.trellis.law/
+- type: MCPServer
+  url: mcp/trellis-research-mcp.yml
+- type: Authentication
+  url: authentication/trellis-research-authentication.yml
+- type: Webhooks
+  url: asyncapi/trellis-research-webhooks.yml
+- type: Conventions
+  url: conventions/trellis-research-conventions.yml
+- type: Lifecycle
+  url: lifecycle/trellis-research-lifecycle.yml
+- type: ChangeLog
+  url: changelog/trellis-research-changelog.yml
+- type: Conformance
+  url: conformance/trellis-research-conformance.yml
+- type: WellKnown
+  url: well-known/trellis-research-well-known.yml
+- type: LLMsTxt
+  url: llms/trellis-research-llms.txt
+- type: DomainSecurity
+  url: security/trellis-research-domain-security.yml

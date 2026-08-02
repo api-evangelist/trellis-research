@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: searched
+source: https://support.trellis.law/trellis-api
+docs: https://support.trellis.law/trellis-api
+summary:
+  types: [apiKey, oauth2]
+  api_key_in: [header]
+  oauth2_flows: [authorizationCode]
+  notes: >-
+    The Trellis REST Data API (V2, introduced May 2024) authenticates with a
+    unique API key sent in the Authorization header. The API key is generated
+    from the Trellis account Settings page (bottom-left of the app). Keys are
+    private, must not be shared publicly, and all requests should be made
+    server-side. The separate remote MCP server (mcp.trellis.law) authenticates
+    with OAuth 2.0 so that no API key is exposed to the client.
+schemes:
+  - name: apiKeyAuth
+    type: apiKey
+    in: header
+    parameter: Authorization
+    applies_to: Trellis REST Data API (V2)
+    source: https://support.trellis.law/trellis-api
+    provisioning: Generated from Trellis account Settings page
+  - name: oauth2
+    type: oauth2
+    applies_to: Trellis Law MCP server (mcp.trellis.law)
+    source: https://support.trellis.law/trellis-law-mcp-technical-documentation
+    issuer: https://mcp.trellis.law
+    authorization_endpoint: https://mcp.trellis.law/oauth/authorize
+    token_endpoint: https://mcp.trellis.law/oauth/token
+    registration_endpoint: https://mcp.trellis.law/oauth/register
+    grant_types: [authorization_code, refresh_token]
+    pkce: S256
+    scopes: [mcp]
+    notes: >-
+      OAuth 2.0 (RFC 8414 + RFC 9728 discovery published at mcp.trellis.law);
+      PKCE S256 and dynamic client registration; no API keys exposed to the
+      MCP client.

@@ -1,0 +1,17 @@
+generated: '2026-07-21'
+method: searched
+source: https://support.trellis.law/trellis-api
+description: >-
+  Recent, dated changes to the Trellis REST Data API captured from the public
+  API documentation. Trellis does not publish a continuous dated changelog feed;
+  this records the documented milestone(s).
+scheme: uri-version
+current_version: v2
+entries:
+  - version: v2
+    date: '2024-05'
+    breaking: false
+    highlights:
+      - Introduced API V2, maintaining all V1 features.
+      - Added federal court and PACER integration.
+      - Broadened access to Federal, District, and Bankruptcy court data alongside state trial data.

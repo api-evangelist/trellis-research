@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: searched
+source: https://support.trellis.law/trellis-law-mcp-technical-documentation
+description: >-
+  Cross-cutting standards conformance for the Trellis platform, derived from the
+  documented authentication and integration surface. No published compliance
+  certification program (SOC 2 / ISO 27001 / etc.) was located, so no Compliance
+  pointer is asserted.
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      The Trellis Law MCP server (mcp.trellis.law) authenticates with OAuth 2.0;
+      no API keys are exposed to the client.
+  - id: mcp
+    conforms: true
+    evidence: Official remote Model Context Protocol server documented at mcp.trellis.law.
+  - id: api-key-auth
+    conforms: true
+    evidence: REST Data API V2 uses an API key in the Authorization header.
+  - id: pacer-integration
+    conforms: true
+    evidence: API V2 integrates U.S. federal PACER court data.
+  - id: rfc9457-problem-details
+    conforms: unknown
+    evidence: Error envelope format not published on public docs.
