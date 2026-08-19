@@ -12,45 +12,53 @@ server:
     authorization_endpoint: https://mcp.trellis.law/oauth/authorize
     token_endpoint: https://mcp.trellis.law/oauth/token
     registration_endpoint: https://mcp.trellis.law/oauth/register
-    grant_types: [authorization_code, refresh_token]
+    grant_types:
+    - authorization_code
+    - refresh_token
     pkce: S256
-    scopes: [mcp]
+    scopes:
+    - mcp
     discovery:
-      - /.well-known/oauth-authorization-server
-      - /.well-known/oauth-protected-resource
-    notes: >-
-      OAuth 2.0 is used for authentication (RFC 8414 authorization-server
-      metadata + RFC 9728 protected-resource metadata published at
-      mcp.trellis.law). Supports PKCE (S256) and dynamic client registration.
-      No API keys are exposed to the client.
-description: >-
-  Official remote MCP server from Trellis (trellis.law) exposing litigation
-  research tools over U.S. state, federal, appellate, supreme, and bankruptcy
-  court data — case search, document retrieval, tentative rulings, verdicts,
-  judge analytics, party/expert search, and litigation analytics. Coverage
+    - /.well-known/oauth-authorization-server
+    - /.well-known/oauth-protected-resource
+    notes: OAuth 2.0 is used for authentication (RFC 8414 authorization-server metadata + RFC 9728 protected-resource
+      metadata published at mcp.trellis.law). Supports PKCE (S256) and dynamic client registration. No
+      API keys are exposed to the client.
+description: Official remote MCP server from Trellis (trellis.law) exposing litigation research tools
+  over U.S. state, federal, appellate, supreme, and bankruptcy court data — case search, document retrieval,
+  tentative rulings, verdicts, judge analytics, party/expert search, and litigation analytics. Coverage
   spans all 50 U.S. states plus DC with varying county-level detail.
 coverage:
-  jurisdictions: [state-trial, federal, appellate, supreme, bankruptcy]
+  jurisdictions:
+  - state-trial
+  - federal
+  - appellate
+  - supreme
+  - bankruptcy
   geographies: 50 U.S. states + DC (1-264 counties per state)
-# Tool families as documented on the MCP technical documentation page. Exact
-# tool identifiers are not published verbatim; captured here as documented
-# capability groups (method: searched from the provider MCP docs).
 tool_families:
-  - name: case_research
-    description: Search dockets by party, judge, or firm; retrieve full case details and complaints.
-  - name: documents
-    description: Full-text search of court filings; retrieve specific document PDFs.
-  - name: rulings
-    description: Search California tentative rulings; access ruling text and metadata.
-  - name: verdicts
-    description: Search verdict records by award range, injury type, and expert.
-  - name: judges
-    description: Find judges by name, state, or county; access profiles with bio and analytics.
-  - name: parties_experts
-    description: Search non-attorney parties and expert witnesses.
-  - name: analytics
-    description: Judge motion grant rates, firm litigation profiles, verdict statistics.
-  - name: taxonomy
-    description: List valid matter types and expert specialties.
+- name: case_research
+  description: Search dockets by party, judge, or firm; retrieve full case details and complaints.
+- name: documents
+  description: Full-text search of court filings; retrieve specific document PDFs.
+- name: rulings
+  description: Search California tentative rulings; access ruling text and metadata.
+- name: verdicts
+  description: Search verdict records by award range, injury type, and expert.
+- name: judges
+  description: Find judges by name, state, or county; access profiles with bio and analytics.
+- name: parties_experts
+  description: Search non-attorney parties and expert witnesses.
+- name: analytics
+  description: Judge motion grant rates, firm litigation profiles, verdict statistics.
+- name: taxonomy
+  description: List valid matter types and expert specialties.
 docs:
-  - https://support.trellis.law/trellis-law-mcp-technical-documentation
+- https://support.trellis.law/trellis-law-mcp-technical-documentation
+deployment:
+  mode: remote
+  endpoint: https://mcp.trellis.law/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census
