@@ -131,3 +131,5 @@ common:
   url: llms/trellis-research-llms.txt
 - type: DomainSecurity
   url: security/trellis-research-domain-security.yml
+x-parent: trellis
+x-relationship: product
